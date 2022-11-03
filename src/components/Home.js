@@ -19,9 +19,9 @@ function Home() {
       setFlag(true);
     } else {
       setFlag(false);
-      // localStorage.setItem("Email", JSON.stringify(email));
-      // localStorage.setItem("Password", JSON.stringify(password));
-      // console.log("saved in local storage");
+      localStorage.setItem("Email", JSON.stringify(email));
+      localStorage.setItem("Password", JSON.stringify(password));
+      console.log("saved in local storage");
       setLogin(!login);
 
       navigate("/Api");
