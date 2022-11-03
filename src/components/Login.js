@@ -16,6 +16,7 @@ import {
   InputRightElement,
 } from "@chakra-ui/react";
 import { FaUserAlt, FaLock } from "react-icons/fa";
+
 // import { useNavigate } from "react-router-dom";
 
 const CFaUserAlt = chakra(FaUserAlt);
@@ -41,8 +42,6 @@ const App = () => {
       e.preventDefault();
       setShowEmail(e.target.value);
       setShowPassword(e.target.value);
-
-      // navigate("/Api");
     }
   };
 

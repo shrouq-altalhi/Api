@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Login from "./Login";
 import "./App.css";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function Home() {
   const [name, setName] = useState("");
@@ -10,7 +11,6 @@ function Home() {
   const [password, setPassword] = useState("");
   const [flag, setFlag] = useState(false);
   const [login, setLogin] = useState(true);
-
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -27,9 +27,22 @@ function Home() {
       navigate("/Api");
     }
   };
-
   const handleClick = () => {
     setLogin(!login);
+  };
+  const postData = () => {
+    axios
+      .post("https://6362424d66f75177ea2a99d7.mockapi.io/Todo", {
+        email,
+        name,
+      })
+      .then((res) => {
+        console.log(res);
+        setEmail(res.data);
+        setName(res.data);
+
+        navigate("/Api");
+      });
   };
   return (
     <div>
@@ -66,7 +79,7 @@ function Home() {
             />
             <br></br>
 
-            <Button type="submit" className="btn">
+            <Button type="submit" className="btn" onClick={postData}>
               Register
             </Button>
             <p onClick={handleClick}>
